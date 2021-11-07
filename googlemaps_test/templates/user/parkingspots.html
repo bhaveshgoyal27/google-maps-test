@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>ParkSpots</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,900">
+        <!-- <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/templatemo-misc.css">
+        <link rel="stylesheet" href="css/templatemo-style.css"> -->
+        <link rel="stylesheet" href="{% static 'spot/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'spot/css/font-awesome.css' %}">
+        <link rel="stylesheet" href="{% static 'spot/css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'spot/css/templatemo-misc.css' %}">
+        <link rel="stylesheet" href="{% static 'spot/css/templatemo-style.css' %}">
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+
+        <header class="site-header container-fluid">
+            <div class="main-header">
+                <div class="row">
+                    <div class="main-header-left col-md-3 col-sm-6 col-xs-8">
+                        <a id="search-icon" class="btn-left fa fa-search" href="#search-overlay"></a>
+                        <div id="search-overlay">
+                            <a href="#search-overlay" class="close-search"><i class="fa fa-times-circle"></i></a>
+                            <div class="search-form-holder">
+                                <h2>Type keywords and hit enter</h2>
+                                <form id="search-form" action="#">
+                                    <input type="search" name="s" placeholder="" autocomplete="off" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-wrapper col-md-9 col-sm-6 col-xs-4">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">SignUp</a></li>
+                            <li><a href="#">Sign in</a></li>
+                        </ul>
+                    </div> 
+                </div> 
+            </div> 
+        </header>
+
+        <div class="content-wrapper">
+            <div class="inner-container container">
+                <div class="row">
+                    <div class="section-header col-md-12">
+                        <h2>Available Spots</h2>
+                    </div>
+                </div>
+                <div class="projects-holder-3">
+                    <div class="filter-categories">
+                        <ul class="project-filter">
+                            <li class="filter" data-filter="all"><span>All</span></li>
+                            <!-- <li class="filter" data-filter="closest"><span>Closest</span></li>
+                            <li class="filter" data-filter="cheapest"><span>Cheapest</span></li> -->
+                        </ul>
+                    </div>
+                    <div class="projects-holder">
+                        <div class="row">
+                            {% for det in detail %}
+                            <div class="col-md-4 project-item mix closest">
+                                <div class="project-thumb">
+                                    <img src="{{ det.image.url }}" alt="">
+                                    <div class="overlay-b">
+                                        <div class="overlay-inner">
+                                            <a href="{{ det.image.url }}" class="fancybox fa fa-expand" title="{{det.user}}"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-content project-detail">
+                                    <h2>{{det.user}}</h2>
+<!--                      <p>Cost- Rs 60/hr</p>--> 
+                                 <a href="{% url 'book' det.id %}"><p>Book your spot now.</p></a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/vendor/jquery-1.11.0.min.js' %}"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

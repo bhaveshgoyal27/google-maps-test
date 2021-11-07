@@ -1,0 +1,139 @@
+{% load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+
+
+
+<title>COVID-19 BRINGING YOU THE DETAILS</title>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+
+		<div class="container">
+
+			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+
+				<span class="sr-only">Toggle navigation</span><span class="icon-bar">hh</span>
+
+				<span class="icon-bar"></span>
+
+				<span class="icon-bar"></span>
+
+				<span class="icon-bar"></span>
+
+				</button>
+
+				<a href="/#" class="navbar-brand">Home</a>
+
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-nav-demo">
+
+				<ul class="nav navbar-nav">
+
+					<li><a href="#">About</a></li>
+
+					<li><a href="#">Contact</a></li>
+
+				</ul>
+<!--
+				<ul class="nav navbar-nav navbar-right">
+
+					<li><a href="coustmer/get_loc">Park your car </a></li>
+
+                    <li><a href="{% url 'register' %}">Sign Up</a></li>
+
+					<li><a href="{% url 'login' %}">Log in</a></li>
+
+
+				</ul>-->
+
+			</div>
+             <div class="nav navbar-nav navbar-right">
+              {% if user.is_authenticated %}
+  				<ul>
+                <li><a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+
+                <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+              {% else %}
+              <ul>
+                <a class="nav-item nav-link" href="{% url 'signin' %}">Login</a>
+
+                <a class="nav-item nav-link" href="{% url 'signup' %}">Register</a></li></ul>
+                <p>   </p>
+              {% endif %}
+
+            </div>
+
+		</div>
+
+	</nav>
+
+    <main role="main" class="container">
+
+      <div class="row">
+
+        <div class="col-md-8">
+
+          {% if messages %}
+
+            {% for message in messages %}
+
+              <div class="alert alert-{{ message.tags }}">
+
+                {{ message }}
+
+              </div>
+
+            {% endfor %}
+
+          {% endif %}
+
+        </div>
+
+        {% block content %}
+
+	<div class="container">
+
+		<div class="jumbotron">
+
+		<center><h1>COVID-19 </h1></center>
+
+		</div>
+
+	<div class="row">
+
+		<div class="col-lg-4 container">
+
+			<!--<img src="#" width="1140" height="600"></img>-->
+
+		</div>
+
+	</div>
+
+	</div>
+{% endblock %}
+
+
+</body>
+
+</html>

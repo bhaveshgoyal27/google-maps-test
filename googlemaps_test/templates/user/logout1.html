@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Log out</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+ -->
+ 	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+
+<!-- 	<link rel="stylesheet" type="text/css" href="css/util.css">
+ -->	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+<!--  <link rel="stylesheet" type="text/css" href="css/main.css">
+ -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+						You have successfully logged out.
+					</span>
+					<span class="login100-form-title p-b-48">
+						
+					</span>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								<a class="txt2" href="{% url 'base' %}">
+									Return to the home page
+								</a>
+							</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
